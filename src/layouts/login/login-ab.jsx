@@ -62,7 +62,7 @@ try {
                             findErr !== null ? <p style={{ color: "red" }}>{findErr}</p> : null
                         }
                     </div>
-                    <Link className="link" to="/auth/signup">New Admin...</Link>
+                   
                 </div> : <Otp phone={phone} />
             }
 

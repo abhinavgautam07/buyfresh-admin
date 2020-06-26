@@ -18,7 +18,7 @@ if(props.currentUser != null){
                    <Login/>
                )
            }}/>
-           <Route  path ="/auth/signup"  component={SignUp}/>
+           
         </Switch>
     )
 
