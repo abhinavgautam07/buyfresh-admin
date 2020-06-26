@@ -19,7 +19,7 @@ var dashRoutes = [
     component:Requests
   },
   {
-    path:"/user",
+    path:"/user/:id",
     name:"user",
     icon:"ui-2_like",
     component:UserPage

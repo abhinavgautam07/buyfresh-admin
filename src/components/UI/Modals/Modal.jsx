@@ -16,7 +16,7 @@ const modal=  props =>{
 
 
                 <div className={cssClasses.join(' ')}>
-        <User/>
+        <User farmerId={props.match.params.id}/>
 
                 </div>
         );

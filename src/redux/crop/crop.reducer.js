@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
-    selectedCrop : "All",
-    cropQuality:"All"
+    selectedCrop : "all",
+    cropQuality:"all"
 }
 
 

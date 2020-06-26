@@ -2,11 +2,30 @@ import React ,{useState} from "react";
 import { Button } from "@material-ui/core"
 import axios from "axios"
 import "./mail.css"
+import {connect} from "react-redux";
 const mailer = (props) => {
+    console.log(props);
     const [value,setValue] = useState("");
-    const submitHandler = (e)=>{
-        console.log(value);
-        props.close();
+    const submitHandler = async (e)=>{
+       try {
+           let token = sessionStorage.getItem("token");
+        let response = await axios.post("http://localhost:8000/api/take-action",{
+            
+            action:props.type,
+            number:props.number,
+            actionMessage:value,
+            crop:props.crop,
+            category:props.category
+        },{
+            headers:{
+                "Authorization" :`Bearer ${token}`
+              },
+        });
+        console.log(response.data);
+         props.close();
+       } catch (error) {
+           
+       }
     }
     const style = {
         display: props.show === "exiting" || props.show === "exited" || props.show === "entering" ? "none" : "block"
@@ -38,5 +57,8 @@ const mailer = (props) => {
         </div>
     )
 }
-
-export default mailer;
+const mapStateToProps = state => ({
+    crop: state.crop.selectedCrop,
+    category: state.crop.cropQuality
+  });
+export default connect(mapStateToProps)(mailer);

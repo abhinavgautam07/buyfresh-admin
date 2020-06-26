@@ -10,7 +10,6 @@ import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import {ApolloClient} from "apollo-boost";
 import Axios from "axios";
-let token = "12345";
 const httpLink = new createHttpLink({
   uri: "http://localhost:8000/graph"
 });
@@ -28,16 +27,16 @@ class App extends Component {
   async componentDidMount() {
     this.setState({ loading: false });
 
-// let token = sessionStorage.getItem("token");
+let token = sessionStorage.getItem("token");
 
-//verify the validity of token
-// let response  = await Axios.get("http://localhost:8000/api/check-session",{
-//   headers:{
-//     "Authorization" :`Bearer ${token}`
-//   }
-// });
+// verify the validity of token
+let response  = await Axios.get("http://localhost:8000/api/check-session",{
+  headers:{
+    "Authorization" :`Bearer ${token}`
+  }
+});
 
-    if (token) {
+    if (token && response.status != 401 ) {
       this.props.setCurrentUser(`Mr.Kisan`);
     }
   }

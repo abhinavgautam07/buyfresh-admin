@@ -7,6 +7,8 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import {Transition} from "react-transition-group"
+
 import Request from "../../components/requestHandler/requestHandler";
 import { Table } from "react-bootstrap";
 import Loader from "react-loader-spinner";
@@ -40,20 +42,22 @@ const error = false;
 const loading = false;
 
   const selectionHandler = (itemId) => {
-    props.history.push("/user");
+    toggleShow(true);
   }
 const modalClose = ()=>{
     toggleShow(false);
 }
 
+
   if (error) {
     console.log(error);
     return <p>...........</p>
   }
+
   return (
     <div>
          {
-          show === true ? <Backdrop show={this.state.show} close={this.modalClose}/>:null
+          show === true ? <Backdrop show={show} close={modalClose}/>:null
         }
       <PanelHeader size="sm" />
       <div className="content">
@@ -108,10 +112,10 @@ const modalClose = ()=>{
       <Transition
           mountOnEnter
           unmountOnExit
-          in={this.state.show}
+          in={show}
           timeout={200}
         >
-          {(state) => (<Request  show={state} close={this.modalClose} />)}
+          {(state) => (<Request  show={state} close={modalClose} />)}
         </Transition>
 
 

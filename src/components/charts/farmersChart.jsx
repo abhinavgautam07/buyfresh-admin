@@ -4,8 +4,8 @@ import "./style.css";
 const CanvasJSReact = require('../../canvasjs.react');
 const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-class FarmerChart extends React.Component {
-	render() {
+const FarmerChart=(props)=> {
+	
 		const options = {
 			exportEnabled: false,
 			animationEnabled: true,
@@ -20,13 +20,7 @@ class FarmerChart extends React.Component {
 				indexLabelFontStyle: "italic",
 				indexLabelFontFamily: "calibri",
 				indexLabel: "{label} - {y}%",
-				dataPoints: [
-					{ y: 18, label: "Wheat" },
-					{ y: 49, label: "Rice" },
-					{ y: 9, label: "Maize" },
-					{ y: 5, label: "Moong" },
-					{ y: 19, label: "Barley" }
-				]
+				dataPoints: props.data
 			}]
 		}
 		return (
@@ -34,6 +28,6 @@ class FarmerChart extends React.Component {
 			<CanvasJSChart options = {options}	/>
 		
 		);
-	}
+	
 }
 export default FarmerChart;                              
