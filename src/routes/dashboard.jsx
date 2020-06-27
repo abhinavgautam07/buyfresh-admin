@@ -2,10 +2,16 @@ import TableList from "views/TableList/TableList.jsx";
 import Requests from "../views/requests/requests.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import UserPage from "../components/UI/Modals/Modal.jsx";
+import Analytics from "../views/analyse/analyse.jsx";
 var dashRoutes = [
   
   { path: "/maps", name: "maps", icon: "location_map-big", component: Maps },
-
+  {
+    path:"/analysis",
+    name:"Analyse",
+    icon:"business_chart-pie-36",
+    component:Analytics
+  },
   {
     path:"/farmer-feedback",
     name:"Feedback",
