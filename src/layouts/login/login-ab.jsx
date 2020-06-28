@@ -22,7 +22,7 @@ try {
         setErr("Enter a valid Number");
         return;
     }
-    let response = await Axios.post("http://localhost:8000/api/submit-number",{
+    let response = await Axios.post("https://buyfreshdtu.xyz/api/submit-number",{
         phone:phone
     });
     console.log(response);
