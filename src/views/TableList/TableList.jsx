@@ -21,10 +21,10 @@ query($crop:String!,$category:String!){
     farmer{
       id
       name
+      avg_rating
+      ratings
     }
    count
-   avg_rating
-   ratings
     }
 }
 
@@ -88,8 +88,8 @@ const RegularTables = (props) => {
                              
                               <td className="text-center">{`${prop.farmer.name}`}</td>
                               <td className="text-center">{prop.count}</td>
-                              <td className="text-center">{prop.avg_rating}</td>
-                              <td className="text-center">{prop.ratings}</td>
+                              <td className="text-center">{prop.farmer.avg_rating}</td>
+                              <td className="text-center">{prop.farmer.ratings}</td>
                              
                             </tr>
                           
