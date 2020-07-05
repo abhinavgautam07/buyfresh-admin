@@ -2,6 +2,7 @@ import React ,{useState} from "react";
 import { Button } from "@material-ui/core"
 import axios from "axios"
 import "./mail.css"
+import {withRouter} from "react-router-dom"
 import {connect} from "react-redux";
 const mailer = (props) => {
     console.log(props);
@@ -23,6 +24,7 @@ const mailer = (props) => {
         });
         console.log(response.data);
          props.close();
+         props.history.push("/farmer-feedback");
        } catch (error) {
            
        }
@@ -61,4 +63,4 @@ const mapStateToProps = state => ({
     crop: state.crop.selectedCrop,
     category: state.crop.cropQuality
   });
-export default connect(mapStateToProps)(mailer);
+export default connect(mapStateToProps)(withRouter(mailer));

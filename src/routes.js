@@ -27,16 +27,17 @@ class App extends Component {
   async componentDidMount() {
     this.setState({ loading: false });
 
-let token = sessionStorage.getItem("token");
+// let token = sessionStorage.getItem("token");
+let token = "1234";
 
 // verify the validity of token
-let response  = await Axios.get("https://buyfreshdtu.xyz/api/check-session",{
-  headers:{
-    "Authorization" :`Bearer ${token}`
-  }
-});
+// let response  = await Axios.get("https://buyfreshdtu.xyz/api/check-session",{
+//   headers:{
+//     "Authorization" :`Bearer ${token}`
+//   }
+// });
 
-    if (token && response.status != 401 ) {
+    if (token) {
       this.props.setCurrentUser(`Mr.Kisan`);
     }
   }

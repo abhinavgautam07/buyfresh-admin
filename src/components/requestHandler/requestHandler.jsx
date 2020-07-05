@@ -1,9 +1,31 @@
 import React ,{useState} from "react";
 import { Button } from "@material-ui/core"
+import Loader from "react-loader-spinner";
+import Axios from "axios";
+import { gql } from 'apollo-boost';
 import "./requestHandler.css"; 
+import { useQuery } from '@apollo/react-hooks';
+import {withRouter} from "react-router-dom";
+const FARMERS_QUERY = gql`
+query($id:ID!){
+  request(id:$id){
+   content
+}
+}
+` 
 const request = (props) => {
-    const submitHandler = (e)=>{
+
+    const { data, error, loading } = useQuery(FARMERS_QUERY, {
+        variables: {id:props.requestId}
+      });
+    const submitHandler = async (action)=>{
+        let response = await Axios.post("https://buyfreshdtu.xyz/api/handle-request",{
+            action:action,
+            requestId:props.requestId
+      
+        });
         props.close();
+        props.history.push("/requests");
     }
     const style = {
         display: props.show === "exiting" || props.show === "exited" || props.show === "entering" ? "none" : "block"
@@ -21,15 +43,28 @@ const request = (props) => {
     } else {
         classes = "Request";
     }
+if(error){
+    console.log(error);
+    return (<p>Error.........</p>);
+}
+
+if(loading){
+    return(<div style={{ position: "relative", top: "17vh", left: "30vw", height: "404px", width: "40%" }}>
+<Loader type="Rings"
+  color="blue"
+  height={100}
+  width={100}
+  timeout={3000} /></div>)
+}
 
     return (
         <div className={classes}>
 
 
-            <textarea value="I am sorry" readOnly style={style} className="text-container" rows={10} cols={62} />
+            <textarea value={data.request.content} readOnly style={style} className="text-container" rows={10} cols={62} />
             <div style={buttonStyle}>
-                <Button variant="contained" color="primary">Accept</Button>
-                <Button onClick={submitHandler} variant="contained" color="secondary">
+                <Button onClick={()=>{submitHandler("accept")}} variant="contained" color="primary">Accept</Button>
+                <Button onClick={()=>{submitHandler("reject")}} variant="contained" color="secondary">
                     Reject
                 </Button>
             </div>
@@ -37,4 +72,4 @@ const request = (props) => {
     )
 }
 
-export default request;
+export default withRouter(request);

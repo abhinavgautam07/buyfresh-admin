@@ -163,11 +163,11 @@ class Header extends React.Component {
               <Autocomplete
                 getItemValue={item => item}
                 items={[
-                  "Raagi",
-                  "Rice",
-                  "Wheat",
-                  "Maize",
-                  "All"
+                  "raagi",
+                  "rice",
+                  "wheat",
+                  "maize",
+                  "all"
                 ]}
                 shouldItemRender={(item, value) =>
                   item.slice(0, value.length).toLowerCase() ===
@@ -201,10 +201,10 @@ class Header extends React.Component {
                 <Autocomplete
                 getItemValue={item => item}
                 items={[
-                  "Premium",
-                  "Elite",
-                  "Classic",
-                  "All"
+                  "premium",
+                  "elite",
+                  "classic",
+                  "all"
                 ]}
                 shouldItemRender={(item, value) =>
                   item.slice(0, value.length).toLowerCase() ===

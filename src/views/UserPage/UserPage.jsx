@@ -23,6 +23,7 @@ query($id:ID!,$crop:String!,$category:String!){
       label
     }
     complaints
+    warnings
   }
 }
 `;
@@ -98,7 +99,7 @@ console.log(data);
             </Col >
             <Col md={7} xs={12}>
               <h4 style={{marginTop:"1.1rem",paddingLeft:"9rem",display:"inline"}}>Complaints</h4>
-              <Menu open={modalOpen}/>
+              <Menu open={modalOpen} warnings={data.complaint.warnings}/>
             <Table className="table-width" striped={true} borderless={true} responsive="md" style={{overflowX:'hidden'}}>
                     <thead className="text-primary">
                       <tr style={{textAlign:'center'}}>

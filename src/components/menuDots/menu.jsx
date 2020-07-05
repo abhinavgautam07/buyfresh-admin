@@ -53,11 +53,14 @@ export default function LongMenu(props) {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={()=> handleCloseAndSelect(option)}>
-            {option}
+        
+          <MenuItem selected={false} onClick={()=> handleCloseAndSelect('BlackList')}>
+            BlackList
           </MenuItem>
-        ))}
+          <MenuItem selected={false} onClick={()=> handleCloseAndSelect('Warn')}>
+      Warn<sup>({props.warnings})</sup>
+          </MenuItem>
+     
       </Menu>
     </div>
   );

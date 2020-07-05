@@ -10,7 +10,7 @@ import {
 import { Table } from "react-bootstrap";
 import Loader from "react-loader-spinner";
 import PanelHeader from "../../layouts/PanelHeader/PanelHeader"
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { thead } from "variables/general";
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
@@ -19,7 +19,7 @@ const FARMERS_QUERY = gql`
 query($crop:String!,$category:String!){
   complaints(crop:$crop,category:$category){
     farmer{
-      id
+      _id
       name
       avg_rating
       ratings
@@ -33,7 +33,7 @@ query($crop:String!,$category:String!){
 const RegularTables = (props) => {
   console.log(props);
   const { data, error, loading } = useQuery(FARMERS_QUERY, {
-    variables: {crop: props.crop, category: props.category }
+    variables: { crop: props.crop, category: props.category }
   });
 
 
@@ -67,7 +67,7 @@ const RegularTables = (props) => {
                         timeout={3000} />
                     </div> : <Table striped={true} borderless={true} responsive="md" style={{ overflowX: 'hidden' }}>
                       <thead className="text-primary">
-                        <tr style={{ textAlign: 'center'}}>
+                        <tr style={{ textAlign: 'center' }}>
                           {thead.map((prop, key) => {
                             if (key === thead.length - 1)
                               return (
@@ -80,19 +80,19 @@ const RegularTables = (props) => {
                         </tr>
                       </thead>
                       <tbody>
-                        
+
                         {data.complaints.map((prop, key) => {
                           return (
-                           
-                            <tr onClick={() => selectionHandler(prop.farmer.id)} style={{ textAlign: 'center',cursor:"pointer" }} key={key}>
-                             
+
+                            <tr onClick={() => selectionHandler(prop.farmer._id)} style={{ textAlign: 'center', cursor: "pointer" }} key={key}>
+
                               <td className="text-center">{`${prop.farmer.name}`}</td>
                               <td className="text-center">{prop.count}</td>
-                              <td className="text-center">{prop.farmer.avg_rating}</td>
+                              <td className="text-center">{prop.farmer.avg_rating.toFixed(2)}</td>
                               <td className="text-center">{prop.farmer.ratings}</td>
-                             
+
                             </tr>
-                          
+
                           );
                         })}
                       </tbody>
@@ -110,7 +110,7 @@ const RegularTables = (props) => {
     </div>
   );
 
-              }
+}
 const mapStateToProps = state => ({
   crop: state.crop.selectedCrop,
   category: state.crop.cropQuality
