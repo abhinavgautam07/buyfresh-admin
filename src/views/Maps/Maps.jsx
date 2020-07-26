@@ -163,7 +163,7 @@ const getOptions = (state) => {
 
 
 const Sales = ({ state }) => {
-
+console.log("state ",state)
   const { data, error, loading } = useQuery(GET_DATA, {
     variables: { state }
   });

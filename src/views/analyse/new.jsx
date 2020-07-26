@@ -33,7 +33,7 @@ const salesData = [
       name: '1st Day', sales:4000
     },
     {
-      name: '5th Day', sales: 3000
+      name: '5th Day', sales: 5000
     },
     {
       name: '10th Day', sales: 2000
@@ -42,10 +42,10 @@ const salesData = [
       name: '15th Day', sales: 2780
     },
     {
-      name: '20th Day', sales: 1890
+      name: '20th Day', sales: 4329
     },
     {
-      name: '25th Day', sales: 2390
+      name: '25th Day', sales: 5679
     },
     {
       name: '30th Day', sales: 3490

@@ -19,7 +19,7 @@ const request = (props) => {
         variables: {id:props.requestId}
       });
     const submitHandler = async (action)=>{
-        let response = await Axios.post("https://buyfreshdtu.xyz/api/handle-request",{
+        let response = await Axios.post("http://localhost:8000/api/handle-request",{
             action:action,
             requestId:props.requestId
       

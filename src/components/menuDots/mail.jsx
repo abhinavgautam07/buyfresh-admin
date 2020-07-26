@@ -10,7 +10,7 @@ const mailer = (props) => {
     const submitHandler = async (e)=>{
        try {
            let token = sessionStorage.getItem("token");
-        let response = await axios.post("https://buyfreshdtu.xyz/api/take-action",{
+        let response = await axios.post("http://localhost:8000/api/take-action",{
             
             action:props.type,
             number:props.number,

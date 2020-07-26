@@ -11,7 +11,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import {ApolloClient} from "apollo-boost";
 import Axios from "axios";
 const httpLink = new createHttpLink({
-  uri: "https://buyfreshdtu.xyz/graph"
+  uri: "http://localhost:8000/graph"
 });
 const cache = new InMemoryCache();
 const client = new ApolloClient({
@@ -27,17 +27,17 @@ class App extends Component {
   async componentDidMount() {
     this.setState({ loading: false });
 
-// let token = sessionStorage.getItem("token");
-let token = "1234";
+let token = sessionStorage.getItem("token");
+// let token = "1234";
 
 // verify the validity of token
-// let response  = await Axios.get("https://buyfreshdtu.xyz/api/check-session",{
-//   headers:{
-//     "Authorization" :`Bearer ${token}`
-//   }
-// });
+let response  = await Axios.get("http://localhost:8000/api/check-session",{
+  headers:{
+    "Authorization" :`Bearer ${token}`
+  }
+});
 
-    if (token) {
+    if (token && response.status!=402) {
       this.props.setCurrentUser(`Mr.Kisan`);
     }
   }

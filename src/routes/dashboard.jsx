@@ -3,6 +3,7 @@ import Requests from "../views/requests/requests.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import UserPage from "../components/UI/Modals/Modal.jsx";
 import Analytics from "../views/analyse/analyse.jsx";
+import Predictions from "../views/predictions";
 var dashRoutes = [
   
   { path: "/maps", name: "maps", icon: "location_map-big", component: Maps },
@@ -11,6 +12,12 @@ var dashRoutes = [
     name:"Analyse",
     icon:"business_chart-pie-36",
     component:Analytics
+  },
+  {
+    path:"/predictions",
+    name:"Predictions",
+    icon:"media-2_sound-wave",
+    component:Predictions
   },
   {
     path:"/farmer-feedback",

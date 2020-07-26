@@ -2,9 +2,15 @@ import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector } from 'recharts';
 const data = [
     { name: 'Rice', value: 40},
-    { name: 'Wheat', value: 40},
-    { name: 'Raggi', value: 40 },
-    { name: 'Maize', value: 40 },
+    { name: 'Wheat', value: 48},
+    { name: 'Raggi', value: 31 },
+    { name: 'Maize', value: 35 },
+    { name: 'Cabbage', value: 43 },
+    { name: 'Lentils', value: 36 },
+    { name: 'Gram', value: 45 },
+    { name: 'Peas', value: 33 },
+    { name: 'Chillies', value: 44 },
+    { name: 'Potatoes', value: 47 },
   ];
   
   const renderActiveShape = (props) => {
