@@ -7,12 +7,12 @@ import Predictions from "../views/predictions";
 var dashRoutes = [
   
   { path: "/maps", name: "maps", icon: "location_map-big", component: Maps },
-  {
-    path:"/analysis",
-    name:"Analyse",
-    icon:"business_chart-pie-36",
-    component:Analytics
-  },
+  // {
+  //   path:"/analysis",
+  //   name:"Analyse",
+  //   icon:"business_chart-pie-36",
+  //   component:Analytics
+  // },
   {
     path:"/predictions",
     name:"Predictions",

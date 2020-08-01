@@ -150,7 +150,7 @@ const getOptions = (state) => {
           },
           scaleLabel: {
             display: true,
-            labelString: `Zones in ${state}`
+            labelString: `Crops in ${state}`
           }
         }
       ]
@@ -189,7 +189,7 @@ if(error) return <p>Error</p>
       labels: crops,
       datasets: [
         {
-          label: "Major Crops",
+          label: "Major Crops(Quintal)",
           backgroundColor: gradientFill,
           borderColor: "#062e04",
           pointBorderColor: "#FFF",

@@ -22,7 +22,7 @@ const otpComponent = (props) => {
                 setErr("Enter a valid otp");
                 return;
             }
-            let response = await Axios.post("http://localhost:8000/api/submit-otp", {
+            let response = await Axios.post("https://buyfreshdtu.xyz/api/submit-otp", {
                 phone: props.phone,
                 otp: otp
             });
