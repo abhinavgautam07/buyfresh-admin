@@ -2,6 +2,7 @@ import TableList from "views/TableList/TableList.jsx";
 import Requests from "../views/requests/requests.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import UserPage from "../components/UI/Modals/Modal.jsx";
+import Blocks from "../views/blocks/blocks.jsx";
 import Analytics from "../views/analyse/analyse.jsx";
 import Predictions from "../views/predictions";
 var dashRoutes = [
@@ -36,6 +37,12 @@ var dashRoutes = [
     name:"user",
     icon:"ui-2_like",
     component:UserPage
+  },
+  {
+    path:"/blocks",
+    name:"Blocks",
+    icon:"ui-2_settings-90",
+    component:Blocks
   },
   { redirect: true, path: "/", pathTo: "/maps", name: "Dashboard" }
 ];

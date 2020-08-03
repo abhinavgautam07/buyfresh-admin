@@ -72,7 +72,7 @@ export default class Example extends Component{
           <Tooltip />
           <Line type="monotone" dataKey="customers" stroke="#8884d8" fill="#8884d8" />
         </LineChart>
-         <h6 style={{marginBottom:"2%",marginTop:"8px",marginLeft:"30%"}}>Customer Acquasition</h6>
+         <h6 style={{marginBottom:"2%",marginTop:"8px",marginLeft:"30%"}}>Customer Acquisition</h6>
         <AreaChart
           width={500}
           height={200}
